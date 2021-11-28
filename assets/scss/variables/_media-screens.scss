@@ -1,0 +1,30 @@
+/* media query variables */
+$desktop: "(min-width: 991.8px )";
+$tablet: "(min-width: 767.1px) and (max-width:991.9px)";
+$ipad-pro: "(min-width: 992.1px) and (max-width:1279.9px)";
+$mobile: "(max-width: 991.9px )";
+
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    //test
+}
+
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    //test
+  }
+
+/* Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    //test
+}

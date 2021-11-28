@@ -1,0 +1,131 @@
+$max: 200;
+$maxX: 80;
+
+$offset: 5;
+$unit: 'px'; // Feel free to change the unit.
+@mixin singleMobile-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} { 
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+@mixin TwoMobile-loop($className, $styleNameOne, $styleNameTwo) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} { 
+      #{$styleNameOne}: #{$i + $unit};
+      #{$styleNameTwo}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+@mixin singleDesktop-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    @media #{$desktop} {
+    #{$className + $i} { 
+      #{$styleName}: #{$i + $unit};
+    }
+  }
+    $i: $i + $offset;
+  }
+}
+@mixin TwoDesktop-loop($className, $styleNameOne, $styleNameTwo) {
+  $i: 0;
+  @while $i <= $max {
+    @media #{$desktop} {
+    #{$className + $i} { 
+      #{$styleNameOne}: #{$i + $unit};
+      #{$styleNameTwo}: #{$i + $unit};
+    }
+  }
+    $i: $i + $offset;
+  }
+}
+@mixin singleMobileX-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $maxX {
+    #{$className + $i} { 
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+@mixin TwoMobileX-loop($className, $styleNameOne, $styleNameTwo) {
+  $i: 0;
+  @while $i <= $maxX {
+    #{$className + $i} { 
+      #{$styleNameOne}: #{$i + $unit};
+      #{$styleNameTwo}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+@mixin singleDesktopX-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $maxX {
+    @media #{$desktop} {
+    #{$className + $i} { 
+      #{$styleName}: #{$i + $unit};
+    }
+  }
+    $i: $i + $offset;
+  }
+}
+@mixin TwoDesktopX-loop($className, $styleNameOne, $styleNameTwo) {
+  $i: 0;
+  @while $i <= $maxX {
+    @media #{$desktop} {
+    #{$className + $i} { 
+      #{$styleNameOne}: #{$i + $unit};
+      #{$styleNameTwo}: #{$i + $unit};
+    }
+  }
+    $i: $i + $offset ;
+  }
+}
+/* mobile spacings starts */
+@include singleMobile-loop('.pt__mob--', 'padding-top');
+@include singleMobile-loop('.pb__mob--', 'padding-bottom');
+@include singleMobile-loop('.p__mob--', 'padding');
+@include singleMobile-loop('.m__mob--', 'margin');
+
+
+@include TwoMobile-loop('.py__mob--', 'padding-top', 'padding-bottom');
+@include singleMobile-loop('.mt__mob--', 'margin-top');
+@include singleMobile-loop('.mb__mob--', 'margin-bottom');
+@include TwoMobile-loop('.my__mob--', 'margin-top', 'margin-bottom');
+/* mobile spacings ends */
+
+// desktop spacing
+@include singleDesktop-loop('.pt--', 'padding-top');
+@include singleDesktop-loop('.pb--', 'padding-bottom');
+@include singleMobile-loop('.p--', 'padding');
+@include singleMobile-loop('.m--', 'margin');
+@include TwoDesktop-loop('.py--', 'padding-top', 'padding-bottom');
+@include singleDesktop-loop('.mt--', 'margin-top');
+@include singleDesktop-loop('.mb--', 'margin-bottom');
+@include TwoDesktop-loop('.my--', 'margin-top', 'margin-bottom');
+/* Desktop spacings ends */
+
+// left right
+/* mobile spacings starts */
+@include singleMobileX-loop('.pl__mob--', 'padding-left');
+@include singleMobileX-loop('.pr__mob--', 'padding-right');
+@include TwoMobileX-loop('.px__mob--', 'padding-left', 'padding-right');
+@include singleMobileX-loop('.ml__mob--', 'margin-left');
+@include singleMobileX-loop('.mr__mob--', 'margin-right');
+@include TwoMobileX-loop('.mx__mob--', 'margin-left', 'margin-right');
+/* mobile spacings ends */
+
+// desktop spacing
+@include singleDesktopX-loop('.pl--', 'padding-left');
+@include singleDesktopX-loop('.pr--', 'padding-right');
+@include TwoDesktopX-loop('.px--', 'padding-left', 'padding-right');
+@include singleDesktopX-loop('.ml--', 'margin-left');
+@include singleDesktopX-loop('.mr--', 'margin-right');
+@include TwoDesktopX-loop('.mx--', 'margin-left', 'margin-right');
+/* Desktop spacings ends */
